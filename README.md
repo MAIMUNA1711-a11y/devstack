@@ -21,14 +21,7 @@ DevStack is a web app where we can look at different technologies and make our o
 - A small toast message shows at the bottom right when you add or remove something.
 - The website works on mobile, tablet and desktop screens.
 
-## ▶️ How To Run
-
-```bash
-npm install
-npm run dev
-
-
-# React Questions
+## React Questions
 
 ### 1. What is JSX, and why is it used in React?
 
@@ -66,3 +59,32 @@ I also used it for `technologies`, `loading` and `error`, and in `Navbar` to ope
 In `App.tsx`, I used it to load the technologies from `/data.json` when the page opens. The dependency array is empty (`[]`), so it runs only one time. If I fetched the data directly inside the component, it would fetch again on every render.
 
 ---
+### 5. Why does every item in a `.map()` list need a unique `key`?
+
+React uses the `key` to know which item is which in a list. When something is added, removed or changed, React updates only that item instead of the whole list. If keys are not unique, React can update the wrong item.
+
+I used `key={tech.id}`. I did not use the index, because the index changes when an item is removed.
+
+---
+
+### 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means showing different things on the screen based on a condition.
+
+I used it in `Sidebar.tsx`. If the stack is empty, it shows "Your Stack is empty". Otherwise, it shows the list of selected technologies:
+
+```tsx
+{stack.length === 0 ? (
+  <div>Your Stack is empty</div>
+) : (
+  <ul>{/* selected technologies */}</ul>
+)}
+```
+
+---
+
+### 7. How do you pass data from parent to child, and child to parent?
+
+A parent sends data to a child using props. A child cannot send data directly to the parent. So the parent gives the child a function as a prop, and the child calls that function to send data back.
+
+In my project, `App.tsx` has an `addStack` function, and it is passed down as a prop to `TechnologyCard`. When the button is clicked, the card calls `addStack(tech)`, and the `stack` state in the parent is updated.
