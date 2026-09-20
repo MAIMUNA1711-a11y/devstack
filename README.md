@@ -21,3 +21,8 @@ DevStack is a web app where we can look at different technologies and make our o
 - A small toast message shows at the bottom right when you add or remove something.
 - The website works on mobile, tablet and desktop screens.
 
+## ▶️ How To Run
+
+```bash
+npm install
+npm run dev
