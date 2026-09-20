@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --background-image-brand: linear-gradient(90deg, #ff7a18, #e91e63, #8e24aa);
+  --color-ink: #111827;
+  --color-accent: #d91b7e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 5rem;
+}
